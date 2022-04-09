@@ -27,7 +27,7 @@ var getIPAddresses = function () {
 
 var udpPort = new osc.UDPPort({
     localAddress: "0.0.0.0",
-    localPort: 57121
+    localPort: 9998
 });
 
 udpPort.on("ready", function () {
@@ -49,6 +49,10 @@ udpPort.on("message", function (oscMessage) {
 
     if(oscMessage.address == '/loop') {
         omxplayer.newSource(oscMessage.args[0], 'hdmi', true, 100);
+    }
+
+    if(oscMessage.address == '/prev' && omxplayer.running) {
+        omxplayer.back30();
     }
 
     if(oscMessage.address == '/pause' && omxplayer.running) {
