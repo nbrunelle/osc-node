@@ -39,6 +39,7 @@ sudo crontab -l > mycron
 ## echo new cron into cron file
 
 sudo echo "@reboot sudo mount /dev/sda1 /mnt/usb && sudo service osc-node start" >> mycron
+sudo echo "@reboot sleep 20 && sudo $PWD/update.sh >> /dev/console" >> mycron
 
 ## install new cron file
 

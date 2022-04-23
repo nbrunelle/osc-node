@@ -39,7 +39,8 @@ udpPort.on("ready", function () {
     });
 
     // Make the screen blank
-    cmd.run('/opt/vc/bin/tvservice -p');
+    // Disable in order to see the console for updates
+    // cmd.run('/opt/vc/bin/tvservice -p');
 });
 
 udpPort.on("message", function (oscMessage) {
